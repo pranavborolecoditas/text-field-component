@@ -1,13 +1,14 @@
   .container {
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
   }
   
   .textfield {
     position: relative;
     height: 56px;
+    // width: 100%;
   }
   
   label {
@@ -33,8 +34,9 @@
     border-radius: 4px;
     padding: 0rem 16px;
     color: var(--primary-text);
-    max-width: 100%;
-    min-width: 136px;
+    // max-width: 100%;
+    // min-width: 136px;
+    width: 100%;
     height: 48px;
     transition: 0.1s ease-out;
   }
@@ -47,8 +49,8 @@
     display: none;
   }
 
-  .error input[type=text] {
-    border: 2px solid var(--error);
+  .error input {
+    border: 2px solid var(--error) !important;
     outline: none;
   }
 

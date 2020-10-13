@@ -10,6 +10,8 @@ export default class OrxeInputField extends LitElement {
   shownValue: string;
   errorMessage: string;
   isError: boolean;
+  disabled: boolean;
+  type: string;
 
   static get properties() {
     return {
@@ -17,9 +19,11 @@ export default class OrxeInputField extends LitElement {
       fieldName: { type: String },
       fieldDisplayName: { type: String },
       shownValue: { type: String },
+      type: { type: String },
       fieldPlaceholder: { type: String },
       errorMessage: { type: String },
       isError: { type: Boolean },
+      disabled: { type: Boolean },
     };
   }
 
@@ -32,6 +36,8 @@ export default class OrxeInputField extends LitElement {
     this.shownValue = '';
     this.isError = false;
     this.errorMessage = '';
+    this.disabled = false;
+    this.type = 'text';
   }
 
   render() {
@@ -39,7 +45,10 @@ export default class OrxeInputField extends LitElement {
     return html`
       <div class="container">
         <div class="${className}">
-          <input type="text" class="cmp-txt--r" id="${this.fieldId}" 
+          <input type="${this.type}" class="cmp-txt--r" id="${this.fieldId}"
+            @input=${this.inputHandler}  
+            ?disabled="${this.disabled}"
+            @focusout="${this.inputFocusHandler}"
             name="${this.fieldName}" placeholder="${this.fieldDisplayName}">
           <label id="text-field-label" class="body--r">${this.fieldDisplayName}</label>
           <div class="error-message">${this.isError ? this.errorMessage: ''}</div>
@@ -48,8 +57,24 @@ export default class OrxeInputField extends LitElement {
     `;
   }
 
-  updateShownValue(e) {
-    this.shownValue = e.srcElement.value;
+  inputHandler(event) { 
+    this.isError = false;
+    this.errorMessage = '';
+    this.dispatchEvent(
+      new CustomEvent("val-change", {
+        detail: { value: event.composedPath()[0].value }
+      })
+    );
+  }
+
+  inputFocusHandler(event) { 
+    if (event.composedPath()[0].value === null || event.composedPath()[0].value === '') {
+      this.isError = true;
+      this.errorMessage = '*This field is required';
+    } else {
+      this.isError = false;
+      this.errorMessage = '';
+    }
   }
 
   static styles = styles;

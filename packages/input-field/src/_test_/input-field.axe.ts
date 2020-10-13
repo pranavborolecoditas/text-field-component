@@ -1,37 +1,25 @@
-import {LitElement} from 'lit-element';
+import { OrxeInputField } from '../index';
+import { axe, toHaveNoViolations } from '@orxe-devkit/axe';
 
-// import { axe, toHaveNoViolations }
+expect.extend(toHaveNoViolations);
 
+describe('orxe-input-filed-axe', () => {
+  let inputField;
 
-describe('orxe-input-field-axe', () => {
-
-  const ORXE_INPUT_FIELD = 'orxe-input-field';
-  const ELEMENT_LABEL_ID = 'text-field-label';
-  let inputFieldElement: LitElement;
-
-  const getShadowRoot = (tagName: string) => {
-    const crudTable = document.querySelector('.cmp-txt--r');
-    const shadowRoot = crudTable.attachShadow({mode: 'open'});
-    return shadowRoot;
-  }
-
-  beforeEach(async () => {
-    inputFieldElement = window.document.createElement(ORXE_INPUT_FIELD) as LitElement;
-      document.body.appendChild(inputFieldElement);
+  beforeEach(function() {
+    OrxeInputField;
+    document.body.appendChild(document.createElement('orxe-input-filed'));
+    inputField = document.querySelector('orxe-input-filed') as OrxeInputField;
   });
 
-  afterEach(() => {
-    afterEach(() => {
-      document.body.getElementsByTagName(ORXE_INPUT_FIELD)[0].remove();
-   });
+  afterEach(function() {
+    inputField.remove();
   });
-  it('displays Label text', async () => {
-    const dummyText = 'Name';
-    inputFieldElement.setAttribute('fieldDisplayName', dummyText);
-    await inputFieldElement.updateComplete;
 
-    const renderedText = getShadowRoot("body--r").querySelector("#text-field-label").innerText;
+  it('should support all WCAG Accessibility Rules. when component is rendered', async () => {
+    // pass the HTML element into the axe function.
+    const results = await axe(inputField);
+    expect(results).toHaveNoViolations();
+  });
 
-    expect(renderedText).toEqual(dummyText);
-});
 });
