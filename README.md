@@ -1,44 +1,26 @@
-## Getting Started with orxe-components
+## ORXE-input-field
 
-The Carbon based foundational web components library can be easily installed in following steps.
+Input field component in orxe is use as input filed with validation and beautiful UI experince.
 
-### Access Locally
+### Usage
 
-Pulldown a local copy of this Github repository created for you.
-
-```
-$ git clone git@github.com:TaviscaSolutions/orxe-components.git
-$ cd [REPO_NAME]
-```
-
-Use HTTPs or add ssh to do so. Using ssh is recommended.
-
-### Set correct credentials
-
-Step 2 would be to set correct registry address and login to NPM via console. This is required for our privacy and security.
+Angular/javascript
 
 ```
-$ npm config set registry  "https://orxe-npm.coditas.dev"
-$ npm config get registry //should print - https://orxe-npm.coditas.dev
-$ npm logout
-$ npm login
-```
+<Default>
+<orxe-input-field></orxe-input-field>
 
-#### Enter following details when asked -
+<Parameters required to customize>
 
-```
-Username: orxe-manager
-Password: <Get password from registry admin>
-Email: <Get email from registry admin>
-```
-
-### Install and Start
+fieldDisplayName: "Field label"
+fieldId: "Id param"
+fieldName: "name param"
+fieldPlaceholder: "Placeholder"
+isError: boolean
+errorMessage: "Error Message if customize error message required"
+disabled: boolean
+type: "text or number or email"
 
 ```
-$ lerna bootstrap --hoist
-$ lerna run start --scope <component-name>
-```
 
-The start command should open a tab in your browser at http://localhost:3000/
 
-#### Enjoy

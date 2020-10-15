@@ -7,7 +7,7 @@ export default class OrxeInputField extends LitElement {
   fieldName: string;
   fieldDisplayName: string;
   fieldPlaceholder: string;
-  shownValue: string;
+  // shownValue: string;
   errorMessage: string;
   isError: boolean;
   disabled: boolean;
@@ -18,7 +18,7 @@ export default class OrxeInputField extends LitElement {
       fieldId: { type: String },
       fieldName: { type: String },
       fieldDisplayName: { type: String },
-      shownValue: { type: String },
+      // shownValue: { type: String },
       type: { type: String },
       fieldPlaceholder: { type: String },
       errorMessage: { type: String },
@@ -33,7 +33,7 @@ export default class OrxeInputField extends LitElement {
     this.fieldId = 'text-filed';
     this.fieldName = 'text-filed';
     this.fieldPlaceholder = 'Text filed';
-    this.shownValue = '';
+    // this.shownValue = '';
     this.isError = false;
     this.errorMessage = '';
     this.disabled = false;
