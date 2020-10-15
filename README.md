@@ -10,17 +10,32 @@ Angular/javascript
 <Default>
 <orxe-input-field></orxe-input-field>
 
-<Parameters required to customize>
+<For disable input>
+<orxe-input-field disabled="true"></orxe-input-field>
 
-fieldDisplayName: "Field label"
-fieldId: "Id param"
-fieldName: "name param"
-fieldPlaceholder: "Placeholder"
-isError: boolean
-errorMessage: "Error Message if customize error message required"
-disabled: boolean
-type: "text or number or email"
+<For Custom Error message>
+<orxe-input-field isError="true" errorMessage="Error message"></orxe-input-field>
 
 ```
 
 
+## Attributes
+
+| Attribute        | Description              | Type   |
+| ---------------- | ------------------------ | ------ |
+| fieldDisplayName | Field label              | string | 
+| ---------------- | ------------------------ | ------ |
+| fieldId          | Id param                 | string | 
+| ---------------- | ------------------------ | ------ |
+| fieldName        | Name param               | string | 
+| ---------------- | ------------------------ | ------ |
+| fieldPlaceholder | Placeholder              | string | 
+| ---------------- | ------------------------ | ------ |
+| isError          | true if custumize error 
+                        message               | boolean| 
+| ---------------- | ------------------------ | ------ |
+| errorMessage     | Error message            | string | 
+| ---------------- | ------------------------ | ------ |
+| disabled         | Use for disabled         | boolean| 
+| ---------------- | ------------------------ | ------ |
+| type             |  text or number or email | string | 
