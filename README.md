@@ -24,18 +24,10 @@ Angular/javascript
 | Attribute        | Description              | Type   |
 | ---------------- | ------------------------ | ------ |
 | fieldDisplayName | Field label              | string | 
-| ---------------- | ------------------------ | ------ |
 | fieldId          | Id param                 | string | 
-| ---------------- | ------------------------ | ------ |
-| fieldName        | Name param               | string | 
-| ---------------- | ------------------------ | ------ |
-| fieldPlaceholder | Placeholder              | string | 
-| ---------------- | ------------------------ | ------ |
-| isError          | true if custumize error 
-                        message               | boolean| 
-| ---------------- | ------------------------ | ------ |
+| fieldName        | Name param               | string |
+| fieldPlaceholder | Placeholder              | string |
+| isError          | true if custumize error message | boolean| 
 | errorMessage     | Error message            | string | 
-| ---------------- | ------------------------ | ------ |
 | disabled         | Use for disabled         | boolean| 
-| ---------------- | ------------------------ | ------ |
 | type             |  text or number or email | string | 
